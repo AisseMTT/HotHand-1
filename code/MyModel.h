@@ -10,7 +10,16 @@ namespace HotHand
 class MyModel
 {
 	private:
+        // Hyperparameters of AR(1) process
+        double mu, L, sigma;
 
+        // Latent parameters with N(0, 1) priors
+        std::vector<double> n;
+
+        // Latent time series of probabilities
+        std::vector<double> prob;
+
+        void assemble();
 
 	public:
 		// Constructor only gives size of params
