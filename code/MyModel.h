@@ -1,8 +1,11 @@
-#ifndef DNest4_Template_MyModel
-#define DNest4_Template_MyModel
+#ifndef HotHand_MyModel
+#define HotHand_MyModel
 
 #include "DNest4/code/DNest4.h"
 #include <ostream>
+
+namespace HotHand
+{
 
 class MyModel
 {
@@ -28,6 +31,8 @@ class MyModel
 		// Return string with column information
 		std::string description() const;
 };
+
+} // namespace HotHand
 
 #endif
 

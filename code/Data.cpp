@@ -5,6 +5,9 @@
 namespace HotHand
 {
 
+// The static instance
+Data Data::instance;
+
 Data::Data()
 {
 

@@ -12,9 +12,6 @@ class Data
         // shots/failure for a bunch of shots
         std::vector<bool> shots;
 
-        // Global instance
-        static Data instance;
-
     public:
         Data();
 
@@ -25,9 +22,8 @@ class Data
         const std::vector<bool>& get_shots() const
         { return shots; }
 
-        // Return global instance by const reference
-        static const Data& get_instance()
-        { return instance; }
+        // Global instance
+        static Data instance;
 };
 
 } // namespace HotHand
