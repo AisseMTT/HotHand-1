@@ -17,7 +17,9 @@ MyModel::MyModel()
 void MyModel::from_prior(DNest4::RNG& rng)
 {
     mu = 5*rng.randn();
-    L = exp(log(0.01) + log(1E4)*rng.rand());
+
+    DNest4::Cauchy c(0.0, 5.0);
+    L = exp(c.generate(rng));
     sigma = exp(log(1E-3) + log(1E4)*rng.rand());
 
     for(auto& _n: n)
@@ -62,9 +64,9 @@ double MyModel::perturb(DNest4::RNG& rng)
         }
         else if(which == 1)
         {
+            DNest4::Cauchy c(0.0, 5.0);
             L = log(L);
-            L += log(1E4)*rng.randh();
-            DNest4::wrap(L, log(1E-2), log(1E2));
+            logH += c.perturb(L, rng);
             L = exp(L);
         }
         else
